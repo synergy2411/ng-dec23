@@ -1,6 +1,15 @@
 "use strict";
 // // Explicit Types
 // // let userName: string = "John Doe";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 // // // Implicit Types
 // // let userAge = 32;
 // // userAge = 32;
@@ -164,14 +173,128 @@
 // friends[1] = "Second";
 // console.log(friends); // ?
 // console.log(f2); // ?
-let user = {
-    email: "test@test.com",
-    age: 32,
-    address: {
-        city: "Delhi",
-    },
+// let user = {
+//   email: "test@test.com",
+//   age: 32,
+//   address: {
+//     city: "Delhi",
+//   },
+// };
+// let { email: e1, age: a1, address } = user;
+// console.log(e1, a1, address);
+// address.city = "Pune";
+// console.log(user.address); // ?
+// REST / SPREAD (...)
+// - Create the collection from individual item
+// - Available only in function arguments list but as a last argument
+// function display(email: string, ...args: any[]) {
+//   console.log(args[0]);
+//   return args;
+// }
+// display("test@test")
+// display("test@test", 32);
+// const arr = display("test@test", 32, true);
+// Spread the collection into individual item
+// let marks = [99, 98, 97];
+// let moreMarks = [96, 95, ...marks];
+// console.log(moreMarks);
+// let userOne = {
+//   email: "test@test",
+//   company: "LandisGyr",
+// };
+// let userTwo = {
+//   ...userOne,
+//   email: "john@test",
+// };
+// console.log(userTwo);
+// let str = "";
+// let a = 10;
+// let b = 20;
+// [b, a] = [a, b];
+// console.log(a, b);
+// PROMISE
+// Producer Code
+function promiseProducer(arr) {
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (arr.length < 2) {
+                resolve({ message: "SUCCESS" });
+            }
+            else {
+                reject(new Error("Something bad happened"));
+            }
+        }, 2000);
+    });
+    return promise;
+}
+// Consumer Code
+// - then().catch()
+// function promiseConsumer() {
+//   promiseProducer([1])
+//     .then(
+//       (data: any) => {
+//         console.log("FIRST THEN : ", data);
+//         return data.message;
+//       },
+//       (err) => {
+//         console.log("INSIDE THEN : ", err);
+//       }
+//     )
+//     .then(
+//       (result) => console.log("SECOND THEN : ", result),
+//       (err: any) => console.log("SECOND CATCH : ", err)
+//     )
+//     .catch((err) => console.error(err));
+// }
+// - Async...await
+function promiseConsumer() {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const data = yield promiseProducer([1, 2, 3]);
+            console.log("DATA : ", data);
+        }
+        catch (err) {
+            console.error(err);
+        }
+    });
+}
+promiseConsumer();
+// window.onload = function () {
+//   const btnfetch = document.querySelector("#btnFetch") as HTMLButtonElement;
+//   const listContainer = document.querySelector(
+//     "#list-container"
+//   ) as HTMLUListElement;
+//   btnfetch.addEventListener("click", function () {
+//     fetch("https://jsonplaceholder.typicode.com/users")
+//       .then((response) => response.json())
+//       .then((users) => {
+//         users.forEach((user: { name: string }) => {
+//           const liElement = document.createElement("li");
+//           liElement.innerHTML = user.name;
+//           listContainer.appendChild(liElement);
+//         });
+//       })
+//       .catch(console.error);
+//   });
+// };
+window.onload = function () {
+    const btnfetch = document.querySelector("#btnFetch");
+    const listContainer = document.querySelector("#list-container");
+    btnfetch.addEventListener("click", function () {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const response = yield fetch("https://jsonplaceholder.typicode.com/users");
+                const users = yield response.json();
+                // More endpoints
+                users.forEach((user) => {
+                    const liElement = document.createElement("li");
+                    liElement.innerHTML = user.name;
+                    listContainer.appendChild(liElement);
+                });
+            }
+            catch (err) {
+                console.error(err);
+            }
+        });
+    });
 };
-let { email: e1, age: a1, address } = user;
-console.log(e1, a1, address);
-address.city = "Pune";
-console.log(user.address); // ?
