@@ -1,3 +1,7 @@
 <h1>Hello Angular</h1>
 
-<app-users></app-users>
+<button class="btn btn-primary" (click)="show = !show">Toggle</button>
+
+<app-life-cycle [title]="title" *ngIf="show"></app-life-cycle>
+
+<!-- <app-users></app-users> -->

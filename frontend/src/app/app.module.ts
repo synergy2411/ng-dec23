@@ -7,6 +7,7 @@ import { UsersComponent } from './components/users/users.component';
 import { EncapComponent } from './components/demo/encap/encap.component';
 import { UserImageComponent } from './components/users/user-image/user-image.component';
 import { UserInfoComponent } from './components/users/user-info/user-info.component';
+import { LifeCycleComponent } from './components/demo/life-cycle/life-cycle.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { UserInfoComponent } from './components/users/user-info/user-info.compon
     EncapComponent,
     UserImageComponent,
     UserInfoComponent,
+    LifeCycleComponent,
   ],
   imports: [
     // Module : custom module / built-in

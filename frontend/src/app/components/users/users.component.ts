@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { IUser } from 'src/app/types/user';
 
 @Component({
   selector: 'app-users',
@@ -7,7 +8,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class UsersComponent {
-  user = {
+  user: IUser = {
     firstName: 'bill',
     lastName: 'gates',
     dob: new Date('Dec 21, 1965'),
@@ -18,7 +19,7 @@ export class UsersComponent {
     votes: 120,
   };
 
-  onMoreInfo(usr: any) {
+  onMoreInfo(usr: IUser) {
     alert(`Mr. ${usr.firstName} is working with ${usr.company}! `);
   }
 }

@@ -1,4 +1,5 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { IUser } from 'src/app/types/user';
 
 @Component({
   selector: 'app-user-image',
@@ -6,9 +7,9 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./user-image.component.css'],
 })
 export class UserImageComponent {
-  @Input() user: any;
+  @Input() user: IUser | undefined;
 
-  @Output() childEvent = new EventEmitter();
+  @Output() childEvent = new EventEmitter<IUser>();
 
   onBtnClick() {
     this.childEvent.emit(this.user);

@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./user-info.component.css'],
 })
 export class UserInfoComponent {
-  // @Input() user: any;
+  // @Input() user: IUser;
 }
