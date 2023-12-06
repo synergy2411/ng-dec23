@@ -1,1 +1,23 @@
-<h2>Users component loaded successfully!</h2>
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-3">
+          <app-user-image [user]="user"></app-user-image>
+        </div>
+        <div class="col-9">
+          <app-user-info></app-user-info>
+          <h1>{{ user.firstName }} {{ user.lastName }}</h1>
+
+          <p>Date of Birth : <span [innerText]="user.dob"></span></p>
+
+          <p>Income : <span [innerText]="user.income"></span></p>
+
+          <p>Total Votes : {{ user.votes }}</p>
+
+          <input type="number" [(ngModel)]="user.votes" />
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
