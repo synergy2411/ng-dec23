@@ -3,19 +3,27 @@
     <li class="list-group-item">
       <div class="row">
         <div class="col-3">
-          <app-user-image [user]="user"></app-user-image>
+          <app-user-image
+            (childEvent)="onMoreInfo($event)"
+            [user]="user"
+          ></app-user-image>
         </div>
         <div class="col-9">
-          <app-user-info></app-user-info>
-          <h1>{{ user.firstName }} {{ user.lastName }}</h1>
+          <app-user-info>
+            <h1>{{ user.firstName }} {{ user.lastName }}</h1>
 
-          <p>Date of Birth : <span [innerText]="user.dob"></span></p>
+            <p class="user-dob">
+              Date of Birth : <span [innerText]="user.dob"></span>
+            </p>
 
-          <p>Income : <span [innerText]="user.income"></span></p>
+            <div class="info-container">
+              <p>Income : <span [innerText]="user.income"></span></p>
 
-          <p>Total Votes : {{ user.votes }}</p>
+              <p>Total Votes : {{ user.votes }}</p>
 
-          <input type="number" [(ngModel)]="user.votes" />
+              <input type="number" [(ngModel)]="user.votes" />
+            </div>
+          </app-user-info>
         </div>
       </div>
     </li>

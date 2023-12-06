@@ -18,7 +18,7 @@ export class UsersComponent {
     votes: 120,
   };
 
-  onMoreInfo(firstName: string, company: string) {
-    alert(`Mr. ${firstName} is working with ${company}! `);
+  onMoreInfo(usr: any) {
+    alert(`Mr. ${usr.firstName} is working with ${usr.company}! `);
   }
 }
