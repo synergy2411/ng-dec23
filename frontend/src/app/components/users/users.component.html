@@ -1,6 +1,16 @@
 <div class="container">
   <ul class="list-group">
-    <li class="list-group-item">
+    <li
+      class="list-group-item"
+      *ngFor="let user of users; index as i; first as isFirst; even as isEven"
+    >
+      <div class="row">
+        <div class="col-12">
+          <p>Index : {{ i }}</p>
+          <p>Is First : {{ isFirst }}</p>
+          <p>Is Even : {{ isEven }}</p>
+        </div>
+      </div>
       <div class="row">
         <div class="col-3">
           <app-user-image
@@ -17,11 +27,17 @@
             </p>
 
             <div class="info-container">
-              <p>Income : <span [innerText]="user.income"></span></p>
+              <p *ngIf="user.isWorking; else elseTemplate">
+                Income : <span [innerText]="user.income"></span>
+              </p>
 
               <p>Total Votes : {{ user.votes }}</p>
 
               <input type="number" [(ngModel)]="user.votes" />
+
+              <ng-template #elseTemplate>
+                <p>Mr. {{ user.firstName }} is Not working now!</p>
+              </ng-template>
             </div>
           </app-user-info>
         </div>
