@@ -8,14 +8,26 @@
 <hr />
 <div class="container">
   <div class="row mb-4">
-    <div class="col-6">
+    <!-- Filter -->
+    <div class="col-4">
       <select class="form-control" [(ngModel)]="filteredStatus">
-        <option value=""></option>
+        <option value="">Filter Here</option>
         <option value="done">Completed Tasks</option>
         <option value="pending">Pending Tasks</option>
       </select>
     </div>
-    <div class="col-6">
+
+    <!-- Sort -->
+    <div class="col-4">
+      <select class="form-control" [(ngModel)]="order">
+        <option value="">Sort Here</option>
+        <option value="ascending">Ascending</option>
+        <option value="decending">Decending</option>
+      </select>
+    </div>
+
+    <!-- Button -->
+    <div class="col-4">
       <div class="d-grid">
         <button class="btn btn-primary" (click)="onAddNew()">Add</button>
       </div>
@@ -24,7 +36,9 @@
 
   <ul class="list-group">
     <li
-      *ngFor="let todo of todoCollection | filter : filteredStatus"
+      *ngFor="
+        let todo of todoCollection | filter : filteredStatus | sort : order
+      "
       class="list-group-item"
     >
       {{ todo.label | uppercase }}

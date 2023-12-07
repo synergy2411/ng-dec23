@@ -18,6 +18,7 @@ export class PipeDemoComponent implements OnInit {
   ];
 
   filteredStatus = '';
+  order = '';
 
   onAddNew() {
     this.todoCollection.push({ label: 'New Item', status: 'pending' });

@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-interface ITodo {
+export interface ITodo {
   label: string;
   status: string;
 }
