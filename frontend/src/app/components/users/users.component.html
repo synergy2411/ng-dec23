@@ -4,14 +4,7 @@
       class="list-group-item"
       *ngFor="let user of users; index as i; first as isFirst; even as isEven"
     >
-      <div class="row">
-        <div class="col-12">
-          <p>Index : {{ i }}</p>
-          <p>Is First : {{ isFirst }}</p>
-          <p>Is Even : {{ isEven }}</p>
-        </div>
-      </div>
-      <div class="row">
+      <div class="row mb-3">
         <div class="col-3">
           <app-user-image
             (childEvent)="onMoreInfo($event)"
@@ -22,12 +15,21 @@
           <app-user-info>
             <h1>{{ user.firstName }} {{ user.lastName }}</h1>
 
-            <p class="user-dob">
+            <p
+              class="user-dob"
+              [ngClass]="dynamicClasses"
+              (mouseenter)="onToggleClass(pElement)"
+              id="p001"
+              #pElement
+            >
               Date of Birth : <span [innerText]="user.dob"></span>
             </p>
 
             <div class="info-container">
-              <p *ngIf="user.isWorking; else elseTemplate">
+              <p
+                [ngStyle]="dynamicStyles"
+                *ngIf="user.isWorking; else elseTemplate"
+              >
                 Income : <span [innerText]="user.income"></span>
               </p>
 
@@ -40,6 +42,11 @@
               </ng-template>
             </div>
           </app-user-info>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <app-comments [comments]="user.comments"></app-comments>
         </div>
       </div>
     </li>

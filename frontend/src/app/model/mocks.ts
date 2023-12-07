@@ -10,6 +10,10 @@ export const USER_DATA: IUser[] = [
     company: ' Microsoft',
     image: './assets/bill.jpg',
     votes: 120,
+    comments: [
+      { stars: 4, body: 'Great Work', author: 'john@test' },
+      { stars: 5, body: 'Nice work 👍', author: 'jenny@test' },
+    ],
   },
   {
     firstName: 'steve',
@@ -20,6 +24,7 @@ export const USER_DATA: IUser[] = [
     company: ' Apple',
     image: './assets/steve.jpg',
     votes: 180,
+    comments: [{ stars: 4, body: 'Great going 👍', author: 'jenny@test' }],
   },
   {
     firstName: 'tim b.',
@@ -30,5 +35,6 @@ export const USER_DATA: IUser[] = [
     company: 'World Wide Web',
     image: './assets/tim.jpg',
     votes: 140,
+    comments: [],
   },
 ];
