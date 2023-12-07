@@ -13,7 +13,9 @@
         </div>
         <div class="col-9">
           <app-user-info>
-            <h1>{{ user.firstName }} {{ user.lastName }}</h1>
+            <h1 appHighlight [favColor]="'green'">
+              {{ user.firstName }} {{ user.lastName }}
+            </h1>
 
             <p
               class="user-dob"

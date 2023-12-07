@@ -9,6 +9,7 @@ import { UserImageComponent } from './components/users/user-image/user-image.com
 import { UserInfoComponent } from './components/users/user-info/user-info.component';
 import { LifeCycleComponent } from './components/demo/life-cycle/life-cycle.component';
 import { CommentsComponent } from './components/users/comments/comments.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CommentsComponent } from './components/users/comments/comments.componen
     UserInfoComponent,
     LifeCycleComponent,
     CommentsComponent,
+    HighlightDirective,
   ],
   imports: [
     // Module : custom module / built-in
