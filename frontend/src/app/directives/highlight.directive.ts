@@ -32,6 +32,7 @@ export class HighlightDirective {
   onMouseEnter() {
     this.bgColor = this.favColor;
     this.color = '#fff';
+    // this.elRef.nativeElement.classList.add("")
   }
 
   @HostListener('mouseleave')

@@ -13,8 +13,8 @@
         </div>
         <div class="col-9">
           <app-user-info>
-            <h1 appHighlight [favColor]="'green'">
-              {{ user.firstName }} {{ user.lastName }}
+            <h1 appHighlight favColor="green">
+              {{ user.firstName | titlecase }} {{ user.lastName | titlecase }}
             </h1>
 
             <p
@@ -24,7 +24,8 @@
               id="p001"
               #pElement
             >
-              Date of Birth : <span [innerText]="user.dob"></span>
+              Date of Birth :
+              <span [innerText]="user.dob | date : 'dd-MM-yyyy'"></span>
             </p>
 
             <div class="info-container">
@@ -32,10 +33,11 @@
                 [ngStyle]="dynamicStyles"
                 *ngIf="user.isWorking; else elseTemplate"
               >
-                Income : <span [innerText]="user.income"></span>
+                Income :
+                <span [innerText]="user.income | currency : 'EUR'"></span>
               </p>
 
-              <p>Total Votes : {{ user.votes }}</p>
+              <p>Total Votes : {{ user.votes | percent }}</p>
 
               <input type="number" [(ngModel)]="user.votes" />
 

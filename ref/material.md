@@ -72,3 +72,10 @@
 - ng g s path/to/ServiceName
 - ng g d path/to/DirectiveName
 - ng g m path/to/ModuleName
+
+Pure Change
+let fruits = ["a", "b"];
+
+fruits.push("c"); // Impure Change
+
+fruits = ["a","b","c"]; // Pure Change

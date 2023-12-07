@@ -10,6 +10,10 @@ import { UserInfoComponent } from './components/users/user-info/user-info.compon
 import { LifeCycleComponent } from './components/demo/life-cycle/life-cycle.component';
 import { CommentsComponent } from './components/users/comments/comments.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { PipeDemoComponent } from './components/demo/pipe-demo/pipe-demo.component';
+import { CountrycodePipe } from './pipes/countrycode.pipe';
+import { ReversePipe } from './pipes/reverse.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +26,10 @@ import { HighlightDirective } from './directives/highlight.directive';
     LifeCycleComponent,
     CommentsComponent,
     HighlightDirective,
+    PipeDemoComponent,
+    CountrycodePipe,
+    ReversePipe,
+    FilterPipe,
   ],
   imports: [
     // Module : custom module / built-in
