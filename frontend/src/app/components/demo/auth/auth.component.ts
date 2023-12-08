@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormBuilder,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-auth',
@@ -7,18 +12,22 @@ import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./auth.component.css'],
 })
 export class AuthComponent implements OnInit {
-  username = new FormControl();
-  password = new FormControl();
+  // username = new FormControl();
+  // password = new FormControl();
   authForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.authForm = this.fb.group({
-      username: this.username,
-      password: this.password,
+      username: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl(),
     });
   }
 
   ngOnInit(): void {}
+
+  get username() {
+    return this.authForm.get('username') as FormControl;
+  }
 
   onLogin() {
     console.log(this.authForm);
