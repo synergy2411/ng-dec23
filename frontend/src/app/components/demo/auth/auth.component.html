@@ -70,6 +70,73 @@
             </div>
           </div>
 
+          <!-- Confirm Password -->
+
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control"
+              name="cnfPassword"
+              id="cnfPassword"
+              placeholder=""
+              formControlName="cnfPassword"
+            />
+            <label for="cnfPassword">Confirm Password:</label>
+            <div *ngIf="cnfPassword.touched && cnfPassword.invalid">
+              <p
+                class="alert alert-danger"
+                *ngIf="cnfPassword.hasError('confirmPasswordError')"
+              >
+                - Password and Confirm Password does NOT match.
+              </p>
+            </div>
+          </div>
+
+          <!-- Form Array : Languages Known -->
+          <div class="form-group mb-4">
+            <button class="btn btn-dark" (click)="onAddLanguage()">
+              Add New Language
+            </button>
+            <br />
+
+            <div formArrayName="languages">
+              <div *ngFor="let lang of languages.controls; index as i">
+                <div [formGroupName]="i">
+                  <div class="row">
+                    <div class="col-5">
+                      <input
+                        type="text"
+                        name="langName"
+                        formControlName="langName"
+                        class="form-control"
+                        placeholder="Name"
+                      />
+                    </div>
+                    <div class="col-5">
+                      <input
+                        type="text"
+                        name="langExp"
+                        formControlName="langExperience"
+                        class="form-control"
+                        placeholder="Experience"
+                      />
+                    </div>
+                    <div class="col-2">
+                      <div class="d-grid">
+                        <button
+                          class="btn btn-outline-danger"
+                          (click)="onDeleteLanguage(i)"
+                        >
+                          🗑️
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- button -->
           <div class="form-group mb-4">
             <div class="row">
