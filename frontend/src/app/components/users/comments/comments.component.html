@@ -29,7 +29,9 @@
   <div *ngSwitchCase="2">
     <!-- <h4>Form coming soon....</h4> -->
 
-    <app-comment-form></app-comment-form>
+    <app-comment-form
+      (newCommentEvent)="onAddComment($event)"
+    ></app-comment-form>
   </div>
-  <div *ngSwitchDefault>Default</div>
+  <div *ngSwitchDefault></div>
 </div>

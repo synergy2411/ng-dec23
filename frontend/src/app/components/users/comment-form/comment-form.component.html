@@ -28,7 +28,7 @@
         <div class="alert alert-danger" *ngIf="body.touched && body.invalid">
           <p>Something went wrong with your message</p>
           <div *ngIf="body.errors['required']">
-            <p>Message is madatory field</p>
+            <p>Message is mandatory field</p>
           </div>
           <div *ngIf="body.errors['minlength']">
             <p>Message should have at least 6 characters</p>
@@ -46,8 +46,22 @@
           ngModel
           required
           email
+          #author="ngModel"
         />
         <label for="author">Email:</label>
+
+        <div
+          class="alert alert-danger"
+          *ngIf="author.touched && author.invalid"
+        >
+          <p>Something went wrong with your author name</p>
+          <div *ngIf="author.errors['required']">
+            <p>Author/email is mandatory field</p>
+          </div>
+          <div *ngIf="author.errors['email']">
+            <p>Author should be in proper email format</p>
+          </div>
+        </div>
       </div>
       <!-- button -->
       <div class="row">
@@ -64,7 +78,7 @@
         </div>
         <div class="col-6">
           <div class="d-grid">
-            <button class="btn btn-warning">Reset</button>
+            <button type="reset" class="btn btn-warning">Reset</button>
           </div>
         </div>
       </div>

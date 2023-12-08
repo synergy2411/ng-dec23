@@ -9,9 +9,14 @@ import { Comment } from 'src/app/types/comment';
 export class CommentsComponent implements OnInit {
   @Input() comments: Comment[];
 
-  tab = 2;
+  tab = 0;
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onAddComment(newComment: Comment) {
+    this.comments.push(newComment);
+    this.tab = 1;
+  }
 }

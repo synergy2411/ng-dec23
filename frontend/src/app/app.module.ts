@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
@@ -16,6 +16,7 @@ import { ReversePipe } from './pipes/reverse.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { CommentFormComponent } from './components/users/comment-form/comment-form.component';
+import { AuthComponent } from './components/demo/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -34,11 +35,13 @@ import { CommentFormComponent } from './components/users/comment-form/comment-fo
     FilterPipe,
     SortPipe,
     CommentFormComponent,
+    AuthComponent,
   ],
   imports: [
     // Module : custom module / built-in
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [], // Service
   bootstrap: [AppComponent],
