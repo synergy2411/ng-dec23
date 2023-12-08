@@ -15,6 +15,7 @@ import { CountrycodePipe } from './pipes/countrycode.pipe';
 import { ReversePipe } from './pipes/reverse.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
+import { CommentFormComponent } from './components/users/comment-form/comment-form.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { SortPipe } from './pipes/sort.pipe';
     ReversePipe,
     FilterPipe,
     SortPipe,
+    CommentFormComponent,
   ],
   imports: [
     // Module : custom module / built-in

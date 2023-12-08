@@ -1,0 +1,73 @@
+<div class="card">
+  <div class="card-body">
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+      <!-- stars -->
+      <div class="form-group mb-3">
+        <select name="stars" class="form-control" ngModel>
+          <option value="">Rate the user</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <!-- body -->
+      <div class="form-group mb-3">
+        <textarea
+          placeholder="Enter your message here"
+          name="body"
+          class="form-control"
+          rows="6"
+          ngModel
+          minlength="6"
+          required
+          #body="ngModel"
+        ></textarea>
+
+        <div class="alert alert-danger" *ngIf="body.touched && body.invalid">
+          <p>Something went wrong with your message</p>
+          <div *ngIf="body.errors['required']">
+            <p>Message is madatory field</p>
+          </div>
+          <div *ngIf="body.errors['minlength']">
+            <p>Message should have at least 6 characters</p>
+          </div>
+        </div>
+      </div>
+      <!-- author -->
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          class="form-control"
+          name="author"
+          id="author"
+          placeholder=""
+          ngModel
+          required
+          email
+        />
+        <label for="author">Email:</label>
+      </div>
+      <!-- button -->
+      <div class="row">
+        <div class="col-6">
+          <div class="d-grid">
+            <button
+              class="btn btn-primary"
+              [disabled]="!myForm.valid"
+              type="submit"
+            >
+              Add
+            </button>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="d-grid">
+            <button class="btn btn-warning">Reset</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

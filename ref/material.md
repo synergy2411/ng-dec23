@@ -79,3 +79,9 @@ let fruits = ["a", "b"];
 fruits.push("c"); // Impure Change
 
 fruits = ["a","b","c"]; // Pure Change
+
+# Form / Form Controls - State & Classes
+
+- ngValid / ngInvalid
+- ngPristine / ngDirty
+- ngUntouched / ngTouched

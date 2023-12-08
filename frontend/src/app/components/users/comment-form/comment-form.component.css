@@ -1,0 +1,15 @@
+.ng-touched.ng-invalid[name="body"] {
+  border-bottom: 4px red solid;
+}
+
+.ng-touched.ng-valid[name="body"] {
+  border-bottom: 4px green solid;
+}
+
+.ng-touched.ng-invalid[name="author"] {
+  border-bottom: 4px red solid;
+}
+
+.ng-touched.ng-valid[name="author"] {
+  border-bottom: 4px green solid;
+}

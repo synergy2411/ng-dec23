@@ -9,7 +9,7 @@ import { Comment } from 'src/app/types/comment';
 export class CommentsComponent implements OnInit {
   @Input() comments: Comment[];
 
-  tab = 1;
+  tab = 2;
 
   constructor() {}
 

@@ -1,9 +1,13 @@
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link" (click)="tab = 1">Show Comments</a>
+    <a class="nav-link" [ngClass]="{ active: tab === 1 }" (click)="tab = 1"
+      >Show Comments</a
+    >
   </li>
   <li class="nav-item">
-    <a class="nav-link" (click)="tab = 2">Add New</a>
+    <a class="nav-link" [ngClass]="{ active: tab === 2 }" (click)="tab = 2"
+      >Add New</a
+    >
   </li>
 </ul>
 
@@ -23,7 +27,9 @@
     </ng-template>
   </div>
   <div *ngSwitchCase="2">
-    <h4>Form coming soon....</h4>
+    <!-- <h4>Form coming soon....</h4> -->
+
+    <app-comment-form></app-comment-form>
   </div>
   <div *ngSwitchDefault>Default</div>
 </div>
