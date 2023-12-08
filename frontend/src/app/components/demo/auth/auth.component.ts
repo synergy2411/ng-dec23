@@ -27,7 +27,10 @@ export class AuthComponent implements OnInit {
         Validators.minLength(6),
         AuthComponent.exclamationValidator,
       ]),
-      cnfPassword: new FormControl('', AuthComponent.confirmPasswordValidator),
+      cnfPassword: new FormControl('', [
+        AuthComponent.confirmPasswordValidator,
+        Validators.required,
+      ]),
       languages: new FormArray([]),
     });
   }
