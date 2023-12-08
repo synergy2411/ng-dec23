@@ -46,6 +46,28 @@
               />
               <label for="password">Password:</label>
             </div>
+
+            <div *ngIf="password.touched && password.invalid">
+              <p
+                *ngIf="password.hasError('required')"
+                class="alert alert-danger"
+              >
+                - Password is mandatory field
+              </p>
+
+              <p
+                *ngIf="password.hasError('minlength')"
+                class="alert alert-danger"
+              >
+                - Password should have at least 6 characters.
+              </p>
+              <p
+                class="alert alert-danger"
+                *ngIf="password.hasError('exclamationError')"
+              >
+                - Password must have exclamation (!) sign.
+              </p>
+            </div>
           </div>
 
           <!-- button -->
@@ -53,7 +75,9 @@
             <div class="row">
               <div class="col-6">
                 <div class="d-grid">
-                  <button class="btn btn-primary">Login</button>
+                  <button [disabled]="!authForm.valid" class="btn btn-primary">
+                    Login
+                  </button>
                 </div>
               </div>
             </div>

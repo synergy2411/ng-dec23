@@ -4,6 +4,8 @@ import {
   FormGroup,
   FormBuilder,
   Validators,
+  AbstractControl,
+  ValidationErrors,
 } from '@angular/forms';
 
 @Component({
@@ -19,7 +21,11 @@ export class AuthComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     this.authForm = this.fb.group({
       username: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl(),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+        AuthComponent.exclamationValidator,
+      ]),
     });
   }
 
@@ -29,7 +35,18 @@ export class AuthComponent implements OnInit {
     return this.authForm.get('username') as FormControl;
   }
 
+  get password() {
+    return this.authForm.get('password') as FormControl;
+  }
   onLogin() {
     console.log(this.authForm);
+  }
+
+  static exclamationValidator(
+    control: AbstractControl
+  ): ValidationErrors | null {
+    // console.log(control);
+    const hasExclamation = control.value.indexOf('!') >= 0;
+    return hasExclamation ? null : { exclamationError: true };
   }
 }
