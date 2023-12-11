@@ -17,6 +17,14 @@ import {
   merge,
   mergeAll,
   take,
+  takeWhile,
+  filter,
+  mergeMap,
+  switchMap,
+  concatMap,
+  exhaustMap,
+  combineLatest,
+  forkJoin,
 } from 'rxjs';
 
 import { ajax } from 'rxjs/ajax';
@@ -56,6 +64,26 @@ export class ObservableDemoComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
+    const interval1$ = interval(500).pipe(take(3));
+    const interval2$ = interval(500).pipe(take(4));
+
+    combineLatest({ interval1: interval1$, interval2: interval2$ }).subscribe(
+      console.log
+    );
+    forkJoin({ val1: interval1$, val2: interval2$ }).subscribe(console.log);
+
+    // const fromDocumentClick$ = fromEvent(document, 'click');
+
+    // fromDocumentClick$
+    //   .pipe(
+    //     exhaustMap(() => {
+    //       return interval(500).pipe(take(4));
+    //     })
+    //   )
+    //   .subscribe((data) => {
+    //     console.log(data);
+    //   });
+
     // let fromEvent$ = fromEvent(this.btnElement.nativeElement, 'click');
     // fromEvent$.subscribe(
     //   (data) => console.log(data),
@@ -71,7 +99,7 @@ export class ObservableDemoComponent implements OnInit, AfterViewInit {
     //         `https://api.github.com/users/${event.target.value}/repos`
     //       );
     //     }),
-    //     mergeAll()
+    //    mergeAll()
     //   )
     //   .subscribe((data) => {
     //     this.repos = <{ name: string }[]>data.response;
@@ -79,19 +107,24 @@ export class ObservableDemoComponent implements OnInit, AfterViewInit {
   }
 
   onSubscribe() {
-    console.log('START');
-    this.obs$.subscribe({
-      next: (data) => console.log(data),
-      error: (err) => console.error('----->', err),
-      complete: () => console.log('COMPLETED'),
-    });
-    console.log('END');
     // console.log('START');
-    // this.unSub$ = this.interval$.pipe(take(5)).subscribe({
+    // this.obs$.subscribe({
     //   next: (data) => console.log(data),
-    //   error: (err) => console.error(err),
+    //   error: (err) => console.error('----->', err),
     //   complete: () => console.log('COMPLETED'),
     // });
+    // console.log('END');
+    // console.log('START');
+    this.unSub$ = this.interval$
+      .pipe(
+        takeWhile((val) => val < 5),
+        filter((val) => val % 2 === 0)
+      )
+      .subscribe({
+        next: (data) => console.log(data),
+        error: (err) => console.error(err),
+        complete: () => console.log('COMPLETED'),
+      });
     // console.log('END');
   }
 
