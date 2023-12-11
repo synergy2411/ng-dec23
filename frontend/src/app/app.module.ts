@@ -17,6 +17,10 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { CommentFormComponent } from './components/users/comment-form/comment-form.component';
 import { AuthComponent } from './components/demo/auth/auth.component';
+import { DataService } from './services/data.service';
+import { C1Component } from './components/demo/c1/c1.component';
+import { C2Component } from './components/demo/c2/c2.component';
+import { ObservableDemoComponent } from './components/demo/observable-demo/observable-demo.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,9 @@ import { AuthComponent } from './components/demo/auth/auth.component';
     SortPipe,
     CommentFormComponent,
     AuthComponent,
+    C1Component,
+    C2Component,
+    ObservableDemoComponent,
   ],
   imports: [
     // Module : custom module / built-in

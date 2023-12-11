@@ -85,3 +85,10 @@ fruits = ["a","b","c"]; // Pure Change
 - ngValid / ngInvalid
 - ngPristine / ngDirty
 - ngUntouched / ngTouched
+
+Data inconsistency
+Delegation of additional responsibility
+
+ng new frontend --aplication=false
+ng g application appNameOne
+ng g application appNameTwo

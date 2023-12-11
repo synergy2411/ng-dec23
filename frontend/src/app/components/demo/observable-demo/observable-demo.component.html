@@ -1,0 +1,19 @@
+<h1>Observable Demo</h1>
+
+<button class="btn btn-primary" (click)="onSubscribe()">Subscribe</button>
+<button class="btn btn-dark" (click)="onUnsubscribe()">Unsubscribe</button>
+<hr />
+
+<div class="row">
+  <div class="col-6">
+    <input type="text" #searchTerm class="form-control" />
+  </div>
+</div>
+
+<!-- <button #mybtn class="btn btn-warning">Generate Observable</button> -->
+
+<ul>
+  <li *ngFor="let repo of repos">
+    {{ repo.name | uppercase }}
+  </li>
+</ul>

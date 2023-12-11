@@ -4,14 +4,16 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 import { IUser } from 'src/app/types/user';
-import { USER_DATA } from 'src/app/model/mocks';
+// import { USER_DATA } from 'src/app/model/mocks';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
   encapsulation: ViewEncapsulation.Emulated,
+  // providers : []
 })
 export class UsersComponent implements OnInit {
   users: IUser[];
@@ -20,8 +22,10 @@ export class UsersComponent implements OnInit {
 
   dynamicStyles = { 'border-bottom': '3px green solid' };
 
+  constructor(private dataService: DataService) {}
+
   ngOnInit(): void {
-    this.users = USER_DATA;
+    this.users = this.dataService.getUserData();
   }
 
   onToggleClass(element: HTMLParagraphElement) {
