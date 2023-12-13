@@ -25,4 +25,8 @@ export class EditTodoComponent implements OnInit {
       });
     }
   }
+
+  onEdit() {
+    // Open the add new component from here
+  }
 }

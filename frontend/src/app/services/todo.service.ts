@@ -39,4 +39,16 @@ export class TodoService {
   deleteTodo(todoId: string) {
     return this.http.delete(`${this.baseUrl}/todos/${todoId}`);
   }
+
+  editTodo(todoId: string, todo: ITodo) {
+    return this.http.patch(
+      `${this.baseUrl}/todos/${todoId}`,
+      JSON.stringify(todo),
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+  }
 }
