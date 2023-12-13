@@ -8,6 +8,7 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -19,7 +20,7 @@ export class AuthComponent implements OnInit {
   // password = new FormControl();
   authForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
     this.authForm = this.fb.group({
       username: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
@@ -54,7 +55,8 @@ export class AuthComponent implements OnInit {
   }
 
   onLogin() {
-    console.log(this.authForm);
+    const { username: email, password } = this.authForm.value;
+    this.authService.onLogin(email, password);
   }
 
   onAddLanguage() {
@@ -87,5 +89,15 @@ export class AuthComponent implements OnInit {
         : { confirmPasswordError: true };
     }
     return null;
+  }
+
+  onRegister() {
+    const { username: email, password } = this.authForm.value;
+    this.authService
+      .onRegister(email, password)
+      .then((userCred) => {
+        console.log('SUCCES ', userCred);
+      })
+      .catch(console.error);
   }
 }

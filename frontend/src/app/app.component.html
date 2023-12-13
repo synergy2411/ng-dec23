@@ -6,7 +6,7 @@
 
 <!-- <app-pipe-demo></app-pipe-demo> -->
 
-<!-- <app-auth></app-auth> -->
+<app-auth></app-auth>
 
 <!-- <app-c1></app-c1>
 <app-c2></app-c2> -->
@@ -16,4 +16,4 @@
 <!-- <app-subject-demo></app-subject-demo> -->
 <!-- <app-todos></app-todos> -->
 
-<app-users></app-users>
+<app-users *ngIf="authService.isAuthenticated()"></app-users>

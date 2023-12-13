@@ -149,7 +149,11 @@
               </div>
               <div class="col-6">
                 <div class="d-grid">
-                  <button [disabled]="!authForm.valid" class="btn btn-success">
+                  <button
+                    (click)="onRegister()"
+                    [disabled]="!authForm.valid"
+                    class="btn btn-success"
+                  >
                     Register
                   </button>
                 </div>
