@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
@@ -22,6 +23,7 @@ import { C1Component } from './components/demo/c1/c1.component';
 import { C2Component } from './components/demo/c2/c2.component';
 import { ObservableDemoComponent } from './components/demo/observable-demo/observable-demo.component';
 import { SubjectDemoComponent } from './components/demo/subject-demo/subject-demo.component';
+import { TodosComponent } from './components/demo/todos/todos.component';
 
 @NgModule({
   declarations: [
@@ -45,12 +47,14 @@ import { SubjectDemoComponent } from './components/demo/subject-demo/subject-dem
     C2Component,
     ObservableDemoComponent,
     SubjectDemoComponent,
+    TodosComponent,
   ],
   imports: [
     // Module : custom module / built-in
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [], // Service
   bootstrap: [AppComponent],

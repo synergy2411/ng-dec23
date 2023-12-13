@@ -1,0 +1,13 @@
+<div class="container">
+  <p class="display-4">My Todos</p>
+
+  <div class="row">
+    <div class="col-4" *ngFor="let todo of todoCollection">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">{{ todo.title | uppercase }}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
