@@ -1,0 +1,42 @@
+{
+  "userdata": [
+    {
+      "firstName": "bill",
+      "lastName": "gates",
+      "dob": "1965-12-20T18:30:00.000Z",
+      "income": 50000,
+      "isWorking": true,
+      "company": " Microsoft",
+      "image": "./assets/bill.jpg",
+      "votes": 120,
+      "comments": [
+        { "stars": 4, "body": "Great Work", "author": "john@test" },
+        { "stars": 5, "body": "Nice work 👍", "author": "jenny@test" }
+      ]
+    },
+    {
+      "firstName": "steve",
+      "lastName": "jobs",
+      "dob": "1965-08-01T18:30:00.000Z",
+      "income": 0,
+      "isWorking": false,
+      "company": " Apple",
+      "image": "./assets/steve.jpg",
+      "votes": 180,
+      "comments": [
+        { "stars": 4, "body": "Great going 👍", "author": "jenny@test" }
+      ]
+    },
+    {
+      "firstName": "tim b.",
+      "lastName": "lee",
+      "dob": "1965-01-02T18:30:00.000Z",
+      "income": 30000,
+      "isWorking": true,
+      "company": "World Wide Web",
+      "image": "./assets/tim.jpg",
+      "votes": 140,
+      "comments": []
+    }
+  ]
+}
