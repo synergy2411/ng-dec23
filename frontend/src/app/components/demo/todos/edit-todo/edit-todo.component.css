@@ -1,0 +1,19 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 50% !important;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.my-form {
+  position: fixed;
+  top: 20vh;
+  left: 30vw;
+  width: 40vw;
+  height: auto;
+  z-index: 70% !important;
+  background-color: #fff;
+}

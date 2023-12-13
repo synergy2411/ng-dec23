@@ -13,7 +13,7 @@
 
   <div class="row">
     <div class="col-4 mb-3" *ngFor="let todo of todoCollection">
-      <div class="card">
+      <div class="card" (click)="onSelectTodo(todo)">
         <div class="card-header">
           <h6 class="text-center">{{ todo.title | uppercase }}</h6>
         </div>
@@ -23,3 +23,9 @@
 </div>
 
 <app-add-todo *ngIf="show" (displayEvent)="onAddnewTodo($event)"></app-add-todo>
+
+<app-edit-todo
+  (editEvent)="onEdit($event)"
+  [todo]="selectedTodo"
+  *ngIf="selectedTodo"
+></app-edit-todo>

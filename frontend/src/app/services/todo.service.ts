@@ -35,4 +35,8 @@ export class TodoService {
       }
     );
   }
+
+  deleteTodo(todoId: string) {
+    return this.http.delete(`${this.baseUrl}/todos/${todoId}`);
+  }
 }

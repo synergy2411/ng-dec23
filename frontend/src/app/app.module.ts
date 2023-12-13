@@ -25,6 +25,7 @@ import { ObservableDemoComponent } from './components/demo/observable-demo/obser
 import { SubjectDemoComponent } from './components/demo/subject-demo/subject-demo.component';
 import { TodosComponent } from './components/demo/todos/todos.component';
 import { AddTodoComponent } from './components/demo/todos/add-todo/add-todo.component';
+import { EditTodoComponent } from './components/demo/todos/edit-todo/edit-todo.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { AddTodoComponent } from './components/demo/todos/add-todo/add-todo.comp
     SubjectDemoComponent,
     TodosComponent,
     AddTodoComponent,
+    EditTodoComponent,
   ],
   imports: [
     // Module : custom module / built-in

@@ -11,6 +11,8 @@ export class TodosComponent implements OnInit {
   todoCollection: ITodo[];
   show = false;
 
+  selectedTodo: ITodo;
+
   constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
@@ -24,5 +26,17 @@ export class TodosComponent implements OnInit {
       this.todoCollection.push(eventData.newTodo);
     }
     this.show = false;
+  }
+
+  onSelectTodo(todo: ITodo) {
+    this.selectedTodo = todo;
+  }
+
+  onEdit(todoId: string) {
+    const position = this.todoCollection.findIndex(
+      (todo) => todo.id === todoId
+    );
+    this.todoCollection.splice(position, 1);
+    this.selectedTodo = null;
   }
 }
