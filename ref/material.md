@@ -92,3 +92,10 @@ Delegation of additional responsibility
 ng new frontend --aplication=false
 ng g application appNameOne
 ng g application appNameTwo
+
+# JSON SERVER
+
+- npm install -g json-server
+- json-server -v
+- cd data
+- json-server db.json --watch

@@ -21,6 +21,7 @@ import { DataService } from './services/data.service';
 import { C1Component } from './components/demo/c1/c1.component';
 import { C2Component } from './components/demo/c2/c2.component';
 import { ObservableDemoComponent } from './components/demo/observable-demo/observable-demo.component';
+import { SubjectDemoComponent } from './components/demo/subject-demo/subject-demo.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ObservableDemoComponent } from './components/demo/observable-demo/obser
     C1Component,
     C2Component,
     ObservableDemoComponent,
+    SubjectDemoComponent,
   ],
   imports: [
     // Module : custom module / built-in

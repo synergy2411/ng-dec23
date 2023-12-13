@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": "p001",
+      "title": "grocery",
+      "body": "to buy some pulses"
+    },
+    {
+      "id": "p002",
+      "title": "shopping",
+      "body": "to buy jeans"
+    },
+    {
+      "id": "p003",
+      "title": "insurance",
+      "body": "to renew car insurance"
+    }
+  ]
+}

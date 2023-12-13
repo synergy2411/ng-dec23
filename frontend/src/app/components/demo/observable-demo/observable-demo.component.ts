@@ -64,13 +64,13 @@ export class ObservableDemoComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    const interval1$ = interval(500).pipe(take(3));
-    const interval2$ = interval(500).pipe(take(4));
+    // const interval1$ = interval(500).pipe(take(3));
+    // const interval2$ = interval(500).pipe(take(4));
 
-    combineLatest({ interval1: interval1$, interval2: interval2$ }).subscribe(
-      console.log
-    );
-    forkJoin({ val1: interval1$, val2: interval2$ }).subscribe(console.log);
+    // combineLatest({ interval1: interval1$, interval2: interval2$ }).subscribe(
+    //   console.log
+    // );
+    // forkJoin({ val1: interval1$, val2: interval2$ }).subscribe(console.log);
 
     // const fromDocumentClick$ = fromEvent(document, 'click');
 
@@ -90,20 +90,19 @@ export class ObservableDemoComponent implements OnInit, AfterViewInit {
     //   (err) => console.log(err),
     //   () => console.log('COMPLETED')
     // );
-    // let fromSerachChange$ = fromEvent(this.searchTerm.nativeElement, 'input');
-    // fromSerachChange$
-    //   .pipe(
-    //     debounceTime(1500),
-    //     map((event: any) => {
-    //       return ajax(
-    //         `https://api.github.com/users/${event.target.value}/repos`
-    //       );
-    //     }),
-    //    mergeAll()
-    //   )
-    //   .subscribe((data) => {
-    //     this.repos = <{ name: string }[]>data.response;
-    //   });
+    let fromSerachChange$ = fromEvent(this.searchTerm.nativeElement, 'input');
+    fromSerachChange$
+      .pipe(
+        debounceTime(1500),
+        mergeMap((event: any) => {
+          return ajax(
+            `https://api.github.com/users/${event.target.value}/repos`
+          );
+        })
+      )
+      .subscribe((data) => {
+        this.repos = <{ name: string }[]>data.response;
+      });
   }
 
   onSubscribe() {
