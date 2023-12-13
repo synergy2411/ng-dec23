@@ -1,7 +1,7 @@
 <div class="container">
   <p class="display-4 text-center">My Todos</p>
 
-  <div class="row">
+  <div class="row mb-4">
     <div class="col-4 offset-4">
       <div class="d-grid">
         <button class="btn btn-primary" (click)="show = !show">
@@ -11,18 +11,15 @@
     </div>
   </div>
 
-  <app-add-todo
-    *ngIf="show"
-    (displayEvent)="onAddnewTodo($event)"
-  ></app-add-todo>
-
   <div class="row">
-    <div class="col-4" *ngFor="let todo of todoCollection">
+    <div class="col-4 mb-3" *ngFor="let todo of todoCollection">
       <div class="card">
         <div class="card-header">
-          <h4 class="text-center">{{ todo.title | uppercase }}</h4>
+          <h6 class="text-center">{{ todo.title | uppercase }}</h6>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<app-add-todo *ngIf="show" (displayEvent)="onAddnewTodo($event)"></app-add-todo>

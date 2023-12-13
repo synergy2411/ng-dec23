@@ -11,16 +11,19 @@ export class AddTodoComponent implements OnInit {
   title = '';
   body = '';
 
-  @Output() displayEvent = new EventEmitter<ITodo>();
+  @Output() displayEvent = new EventEmitter<{
+    isAdded: boolean;
+    newTodo: ITodo;
+  }>();
 
   constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {}
 
-  onAddTodo() {
+  onAddTodo(isAdded: boolean) {
     this.todoService.createTodo(this.title, this.body).subscribe(
       (data) => {
-        this.displayEvent.emit(data);
+        this.displayEvent.emit({ isAdded, newTodo: data });
       },
       (err) => console.error(err)
     );

@@ -19,8 +19,10 @@ export class TodosComponent implements OnInit {
       .subscribe((data) => (this.todoCollection = data));
   }
 
-  onAddnewTodo(newTodo: ITodo) {
-    this.todoCollection.push(newTodo);
+  onAddnewTodo(eventData: { isAdded: boolean; newTodo: ITodo }) {
+    if (eventData.isAdded) {
+      this.todoCollection.push(eventData.newTodo);
+    }
     this.show = false;
   }
 }

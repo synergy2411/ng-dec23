@@ -1,43 +1,56 @@
 <div class="backdrop">
   <div class="my-form">
-    <h2 class="text-center">Add New Todo</h2>
-    <form>
-      <!-- title -->
-      <div class="form-group mb-4">
-        <div class="form-floating mb-3">
-          <input
-            type="text"
-            class="form-control"
-            name="title"
-            id="title"
-            placeholder=""
-            [(ngModel)]="title"
-          />
-          <label for="title">Title :</label>
-        </div>
-      </div>
-      <!-- body -->
-      <div class="form-group mb-4">
-        <div class="form-floating mb-3">
-          <input
-            type="text"
-            class="form-control"
-            name="body"
-            id="body"
-            placeholder=""
-            [(ngModel)]="body"
-          />
-          <label for="body">Body :</label>
-        </div>
-      </div>
-      <!-- button -->
-      <div class="row">
-        <div class="col-6">
-          <div class="d-grid">
-            <button class="btn btn-secondary" (click)="onAddTodo()">Add</button>
+    <div class="container">
+      <h4 class="text-center mb-4 mt-4">Add New Todo</h4>
+      <form>
+        <!-- title -->
+        <div class="form-group mb-4">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              name="title"
+              id="title"
+              placeholder=""
+              [(ngModel)]="title"
+            />
+            <label for="title">Title :</label>
           </div>
         </div>
-      </div>
-    </form>
+        <!-- body -->
+        <div class="form-group mb-4">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              name="body"
+              id="body"
+              placeholder=""
+              [(ngModel)]="body"
+            />
+            <label for="body">Body :</label>
+          </div>
+        </div>
+        <!-- button -->
+        <div class="row mb-4">
+          <!-- Add Button -->
+          <div class="col-6">
+            <div class="d-grid">
+              <button class="btn btn-secondary" (click)="onAddTodo(true)">
+                Add
+              </button>
+            </div>
+          </div>
+          <!-- Cancel Button -->
+          <div class="col-6">
+            <div class="d-grid">
+              <button class="btn btn-light" (click)="onAddTodo(false)">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
