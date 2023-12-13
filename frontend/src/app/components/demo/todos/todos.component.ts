@@ -9,6 +9,7 @@ import { TodoService } from 'src/app/services/todo.service';
 })
 export class TodosComponent implements OnInit {
   todoCollection: ITodo[];
+  show = false;
 
   constructor(private todoService: TodoService) {}
 
@@ -16,5 +17,10 @@ export class TodosComponent implements OnInit {
     this.todoService
       .getTodos()
       .subscribe((data) => (this.todoCollection = data));
+  }
+
+  onAddnewTodo(newTodo: ITodo) {
+    this.todoCollection.push(newTodo);
+    this.show = false;
   }
 }

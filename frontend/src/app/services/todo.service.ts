@@ -18,4 +18,21 @@ export class TodoService {
   getTodo(todoId: string): Observable<ITodo> {
     return this.http.get<ITodo>(`${this.baseUrl}/todos/${todoId}`);
   }
+
+  createTodo(title: string, body: string) {
+    let newTodo = {
+      title,
+      body,
+    };
+
+    return this.http.post<ITodo>(
+      `${this.baseUrl}/todos`,
+      JSON.stringify(newTodo),
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+  }
 }

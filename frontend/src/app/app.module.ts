@@ -24,6 +24,7 @@ import { C2Component } from './components/demo/c2/c2.component';
 import { ObservableDemoComponent } from './components/demo/observable-demo/observable-demo.component';
 import { SubjectDemoComponent } from './components/demo/subject-demo/subject-demo.component';
 import { TodosComponent } from './components/demo/todos/todos.component';
+import { AddTodoComponent } from './components/demo/todos/add-todo/add-todo.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { TodosComponent } from './components/demo/todos/todos.component';
     ObservableDemoComponent,
     SubjectDemoComponent,
     TodosComponent,
+    AddTodoComponent,
   ],
   imports: [
     // Module : custom module / built-in
