@@ -105,3 +105,5 @@ ng g application appNameTwo
 - Routes : config about route path and component
 - RouterModule
 - RouterOutlet: provide the space to load the component template
+- RouterLink : does not reload / refresh the browser
+- Router : programmatically navigate the user

@@ -6,6 +6,7 @@ import {
   UserCredential,
 } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
+import { Router } from '@angular/router';
 
 const app = initializeApp({
   apiKey: 'AIzaSyBecXCx9l6VDzbDc7kjT8uHQHfmJ2mEjDs',
@@ -20,7 +21,7 @@ const auth = getAuth(app);
 export class AuthService {
   private token = null;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   onRegister(email: string, password: string) {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -29,8 +30,9 @@ export class AuthService {
   onLogin(email: string, password: string) {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCred: UserCredential) => {
-        console.log('LOGGED IN', userCred.user['accessToken']);
+        // console.log('LOGGED IN', userCred.user['accessToken']);
         this.token = userCred.user['accessToken'];
+        this.router.navigate(['/users']);
       })
       .catch(console.error);
   }
