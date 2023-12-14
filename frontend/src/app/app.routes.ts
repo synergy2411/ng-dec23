@@ -4,6 +4,9 @@ import { UsersComponent } from './components/users/users.component';
 import { TodosComponent } from './components/demo/todos/todos.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { LoginGuard } from './services/guards/login.guard';
+import { ProductsComponent } from './components/demo/products/products.component';
+import { OverviewComponent } from './components/demo/products/overview/overview.component';
+import { SpecificationComponent } from './components/demo/products/specification/specification.component';
 
 export const APP_ROUTES: Routes = [
   {
@@ -23,6 +26,20 @@ export const APP_ROUTES: Routes = [
   {
     path: 'todos',
     component: TodosComponent,
+  },
+  {
+    path: 'products',
+    component: ProductsComponent,
+    children: [
+      {
+        path: ':productId/overview', // /products/overview
+        component: OverviewComponent,
+      },
+      {
+        path: 'spec',
+        component: SpecificationComponent,
+      },
+    ],
   },
   {
     path: '**',

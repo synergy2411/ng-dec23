@@ -31,6 +31,9 @@ import { AuthInterceptor } from './services/interceptors/auth.interceptor';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { APP_ROUTES } from './app.routes';
 import { HeaderComponent } from './components/header/header.component';
+import { ProductsComponent } from './components/demo/products/products.component';
+import { OverviewComponent } from './components/demo/products/overview/overview.component';
+import { SpecificationComponent } from './components/demo/products/specification/specification.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +62,9 @@ import { HeaderComponent } from './components/header/header.component';
     EditTodoComponent,
     PageNotFoundComponent,
     HeaderComponent,
+    ProductsComponent,
+    OverviewComponent,
+    SpecificationComponent,
   ],
   imports: [
     // Module : custom module / built-in

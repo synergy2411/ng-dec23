@@ -103,7 +103,11 @@ ng g application appNameTwo
 # Routing Terminologies -
 
 - Routes : config about route path and component
-- RouterModule
+- RouterModule : to include route config in app
 - RouterOutlet: provide the space to load the component template
 - RouterLink : does not reload / refresh the browser
 - Router : programmatically navigate the user
+- ActivatedRoute : access of currently loaded route / url
+
+http://localhost:4200/products/overview
+http://localhost:4200/products/specification
