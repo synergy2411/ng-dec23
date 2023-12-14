@@ -34,6 +34,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProductsComponent } from './components/demo/products/products.component';
 import { OverviewComponent } from './components/demo/products/overview/overview.component';
 import { SpecificationComponent } from './components/demo/products/specification/specification.component';
+import { EagerModule } from './modules/eager/eager.module';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { SpecificationComponent } from './components/demo/products/specification
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(APP_ROUTES),
+    EagerModule,
   ],
   providers: [
     {

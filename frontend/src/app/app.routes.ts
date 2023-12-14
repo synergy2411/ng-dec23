@@ -42,6 +42,11 @@ export const APP_ROUTES: Routes = [
     ],
   },
   {
+    path: 'lazy',
+    loadChildren: () =>
+      import('./modules/lazy/lazy.module').then((m) => m.LazyModule),
+  },
+  {
     path: '**',
     component: PageNotFoundComponent,
   },
