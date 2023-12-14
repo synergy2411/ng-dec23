@@ -99,3 +99,9 @@ ng g application appNameTwo
 - json-server -v
 - cd data
 - json-server db.json --watch
+
+# Routing Terminologies -
+
+- Routes : config about route path and component
+- RouterModule
+- RouterOutlet: provide the space to load the component template

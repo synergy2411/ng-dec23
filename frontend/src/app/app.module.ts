@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
@@ -27,6 +28,9 @@ import { TodosComponent } from './components/demo/todos/todos.component';
 import { AddTodoComponent } from './components/demo/todos/add-todo/add-todo.component';
 import { EditTodoComponent } from './components/demo/todos/edit-todo/edit-todo.component';
 import { AuthInterceptor } from './services/interceptors/auth.interceptor';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { APP_ROUTES } from './app.routes';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +57,8 @@ import { AuthInterceptor } from './services/interceptors/auth.interceptor';
     TodosComponent,
     AddTodoComponent,
     EditTodoComponent,
+    PageNotFoundComponent,
+    HeaderComponent,
   ],
   imports: [
     // Module : custom module / built-in
@@ -60,6 +66,7 @@ import { AuthInterceptor } from './services/interceptors/auth.interceptor';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RouterModule.forRoot(APP_ROUTES),
   ],
   providers: [
     {
