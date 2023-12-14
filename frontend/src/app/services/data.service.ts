@@ -15,9 +15,7 @@ export class DataService {
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   getUserData(): Observable<IUser[]> {
-    return this.http.get<IUser[]>(
-      `${this.baseUrl}?auth=${this.authService.getToken()}`
-    );
+    return this.http.get<IUser[]>(`${this.baseUrl}`);
     // return USER_DATA;
   }
 }
