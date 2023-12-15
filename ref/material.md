@@ -111,3 +111,13 @@ ng g application appNameTwo
 
 http://localhost:4200/products/overview
 http://localhost:4200/products/specification
+
+# Firebase Deployment
+
+- npm i firebase-tools -g
+- firebase login
+- firebase init
+
+let a = 10, b =20;
+
+[a,b] = [b,a];

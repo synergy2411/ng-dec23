@@ -2,7 +2,8 @@
   <nav class="navbar-nav navbar">
     <ul class="nav nav-tabs">
       <li class="nav-item" *ngIf="!authService.isAuthenticated()">
-        <a class="nav-link" [routerLink]="['/auth']">Home</a>
+        <!-- <a class="nav-link" [routerLink]="['/auth']">Home</a> -->
+        <a class="nav-link" routerLink="/auth">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/todos']">Todos</a>

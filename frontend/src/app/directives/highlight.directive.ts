@@ -13,6 +13,10 @@ import {
 export class HighlightDirective {
   @Input() favColor: string;
 
+  // set appHighlight(val: string) {
+
+  // }
+
   constructor(private elRef: ElementRef) {
     this.elRef.nativeElement.classList.add('display-3');
   }

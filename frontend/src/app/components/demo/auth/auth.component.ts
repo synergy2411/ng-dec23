@@ -56,6 +56,7 @@ export class AuthComponent implements OnInit {
 
   onLogin() {
     const { username: email, password } = this.authForm.value;
+    // debugger;
     this.authService.onLogin(email, password);
   }
 
